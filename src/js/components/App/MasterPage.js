@@ -10,6 +10,7 @@ import { FormattedMessage } from 'react-intl';
 const TabPane = Tabs.TabPane;
 
 class MasterPage extends React.Component {
+
     componentWillMount () {
         this.props.onWillMount();
     }
@@ -50,55 +51,39 @@ class MasterPage extends React.Component {
 
     render () {
         const { panes, activeTab, onTabChange } = this.props;
-        if (activeTab === 'home') {
-            let homePane = panes.filter(o => {
-                return o.key === 'home';
-            })[0];
-            return (
-                <Layout className="full-height">
-                    <Topbar/>
+        return (
+            <Layout className="full-height">
+                {/*<Topbar/>*/}
+                <Layout>
+                    <Sidebar/>
                     <Layout>
-                        {homePane.component}
+                        <Topbar/>
+                        <Tabs
+                            hideAdd
+                            className="page-tabs flex-grow-1 display-flex flex-column"
+                            onChange={onTabChange}
+                            activeKey={activeTab}
+                            type="editable-card"
+                            onEdit={this.onEdit}
+                        >
+                            {
+                                panes.map(pane => <TabPane className="page-pane"
+                                                           tab={<span><Icon type={pane.icon}/><FormattedMessage id={pane.title}/></span>}
+                                                           key={pane.key}
+                                                           closable={pane.key !== 'home'}>
+                                    <PotentialError>
+                                    {pane.component}
+                                    </PotentialError>
+                                    </TabPane>)
+                            }
+                        </Tabs>
+                        {/*<Copyright/>*/}
                     </Layout>
                 </Layout>
-            );
-        } else {
-            let index = panes.findIndex(o => { return o.key === 'home'; });
-            /* eslint-disable no-unused-expressions */
-            index > -1 ? panes.splice(index, 1) : '';
-            return (
-                <Layout className="full-height">
-                    {/*<Topbar/>*/}
-                    <Layout>
-                        <Sidebar/>
-                        <Layout>
-                            <Topbar/>
-                            <Tabs
-                                hideAdd
-                                className="page-tabs flex-grow-1 display-flex flex-column"
-                                onChange={onTabChange}
-                                activeKey={activeTab}
-                                type="editable-card"
-                                onEdit={this.onEdit}
-                            >
-                                {
-                                    panes.map(pane => <TabPane className="page-pane"
-                                                               tab={<span><Icon type={pane.icon}/><FormattedMessage id={pane.title}/></span>}
-                                                               key={pane.key}
-                                                               closable={pane.key !== 'home'}>
-                                        <PotentialError>
-                                        {pane.component}
-                                        </PotentialError>
-                                        </TabPane>)
-                                }
-                            </Tabs>
-                            <Copyright/>
-                        </Layout>
-                    </Layout>
-                </Layout>
-            );
-        }
+            </Layout>
+        );
     }
+
 }
 
 MasterPage = connect(state => {

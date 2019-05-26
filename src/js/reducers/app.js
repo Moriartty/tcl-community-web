@@ -26,7 +26,8 @@ const defaultState = {
         msg: '',
         desc: '',
         duration: 2
-    }
+    },
+    isLogin:true
 };
 
 export default (state, action) => {

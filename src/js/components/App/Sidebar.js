@@ -16,18 +16,12 @@ class Sidebar extends React.Component {
     };
     componentWillMount(){
         const props = this.props;
-        if(props.activeTab.indexOf('tBase')>-1){
-            this.setState({openKeys:props.sidebarMenuData.map(o=>o.no)})
-        }
+        // this.setState({openKeys:props.menuData&&props.menuData.map(o=>o.no)})
+
     }
 
     componentWillReceiveProps (nextProps) {
-        // if (nextProps.activeTab === 'home' && nextProps.sidebarMenuData !== this.props.sidebarMenuData) {
-        //     this.setState({ openKeys: ['entry'] });
-        // }
-        if(nextProps.activeTab.indexOf('tBase')>-1 && nextProps.sidebarMenuData !== this.props.sidebarMenuData){
-            this.setState({openKeys:nextProps.sidebarMenuData.map(o=>o.no)})
-        }
+        // this.setState({openKeys:nextProps.menuData&&nextProps.menuData.map(o=>o.no)})
     }
 
     onOpenChange = (openKeys) => {
@@ -80,7 +74,7 @@ class Sidebar extends React.Component {
     }
 
     render () {
-        const { sidebarMenuData: menu, onClick,menuData } = this.props;
+        const { sidebarMenuData: menu, onClick,menuData,locale } = this.props;
         // if (!menu.length) {
         //     return <Sider className="sidebar" width={0}></Sider>;
         // }
@@ -88,16 +82,19 @@ class Sidebar extends React.Component {
             <PotentialError>
                 <Sider
                     className="sidebar"
-                    width={250}
+                    width={230}
                     onCollapse={this.toggle}
                     collapsible
                     collapsed={this.state.collapsed}>
-                    <SidebarInfo/>
+                    {/*<SidebarInfo/>*/}
+                    <div class="logo">
+                        <img src={locale=='zh-CN'?APP_LOGO_ZH:APP_LOGO_EN} style={{ height: 35, marginRight: 5 }}/>
+                    </div>
                     <div className="menu-wrapper">
                         <Menu
                             mode="inline"
                             // theme={APP_EDITION=='jianjiao'?'light':'dark'}
-                            // theme={'dark'}
+                            theme={'dark'}
                             openKeys={this.state.openKeys}
                             onOpenChange={this.onOpenChange}
                             selectable={false}
@@ -120,8 +117,8 @@ class Sidebar extends React.Component {
 }
 
 Sidebar = connect(state => {
-    const { sidebarMenuData, activeTab,menuData } = state.app;
-    return { sidebarMenuData, activeTab,menuData };
+    const { sidebarMenuData, activeTab,menuData,locale } = state.app;
+    return { sidebarMenuData, activeTab,menuData,locale };
 }, dispatch => ({
     /**
      * 点击菜单
