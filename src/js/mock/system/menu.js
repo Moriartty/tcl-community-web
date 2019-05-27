@@ -9,46 +9,12 @@ module.exports = [
             'data': [
                 { id: 1, name: 'menuName_home', module: 'home' },
                 {
-                    id:7,
-                    name:'menuName_tBase',
+                    id: 7,
+                    name: 'menuName_contentMgr',
                     list:[
-                        {
-                            id:70,
-                            name:'menuName_tBase_dev',
-                            list:[
-                                { id: 700, name: 'menuName_tBase_authentication', module: 'tBase/authentication', display: 1 },
-                                { id: 701, name: 'menuName_tBase_database', module: 'tBase/database', display: 1 },
-                                { id: 702, name: 'menuName_tBase_storage', module: 'tBase/storage', display: 1 },
-                                { id: 703, name: 'menuName_tBase_hosting', module: 'tBase/hosting', display: 1 },
-                                { id: 704, name: 'menuName_tBase_function', module: 'tBase/function', display: 1 },
-                                { id: 705, name: 'menuName_tBase_mlKit', module: 'tBase/mlKit', display: 1 },
-                            ]
-                        },
-                        {
-                            id:71,
-                            name:'menuName_tBase_quality',
-                            list:[
-                                { id: 710, name: 'menuName_tBase_carshlytics', module: 'tBase/carshlytics', display: 1 },
-                                { id: 711, name: 'menuName_tBase_performance', module: 'tBase/performance', display: 1 },
-                                { id: 712, name: 'menuName_tBase_testLab', module: 'tBase/testLab', display: 1 },
-                            ]
-                        },
-                        {
-                            id:72,
-                            name:'menuName_tBase_analyse',
-                            list:[
-                                { id: 720, name: 'menuName_tBase_dashboard', module: 'tBase/dashboard', display: 1 },
-                                { id: 721, name: 'menuName_tBase_events', module: 'tBase/events', display: 1 },
-                                { id: 722, name: 'menuName_tBase_conversions', module: 'tBase/conversions', display: 1 },
-                                { id: 723, name: 'menuName_tBase_audiences', module: 'tBase/audiences', display: 1 },
-                                { id: 724, name: 'menuName_tBase_funnels', module: 'tBase/funnels', display: 1 },
-                                { id: 725, name: 'menuName_tBase_userProperties', module: 'tBase/userProperties', display: 1 },
-                                { id: 726, name: 'menuName_tBase_latestRelease', module: 'tBase/latestRelease', display: 1 },
-                                { id: 727, name: 'menuName_tBase_retention', module: 'tBase/retention', display: 1 },
-                                { id: 728, name: 'menuName_tBase_streamView', module: 'tBase/streamView', display: 1 },
-                                { id: 729, name: 'menuName_tBase_debugView', module: 'tBase/debugView', display: 1 },
-                            ]
-                        }
+                        { id: 700, name: 'menuName_contentMgr_OGC', module: 'contentMgr/OGC', functions: ['SEARCH'] },
+                        { id: 701, name: 'menuName_contentMgr_PGC', module: 'contentMgr/PGC', functions: ['SEARCH'] },
+                        { id: 702, name: 'menuName_contentMgr_UGC', module: 'contentMgr/UGC', functions: ['SEARCH'] },
                     ]
                 },
                 {
@@ -61,10 +27,6 @@ module.exports = [
                         { id: 803, name: 'menuName_logMgr_care_suggestion', module: 'logMgr/care_suggestion', functions: ['SEARCH'] },
                         { id: 804, name: 'menuName_logMgr_care_electron_card', module: 'logMgr/care_electron_card', functions: ['SEARCH'] },
                         { id: 805, name: 'menuName_logMgr_logView', module: 'logMgr/logView', functions: ['SEARCH'] },
-                        // { id: 806, name: 'menuName_logMgr_dashboard', module: 'logMgr/dashboard', functions: ['SEARCH'] },
-                        { id: 806, name: 'menuName_logMgr_dashboard2', module: 'logMgr/dashboard2', functions: ['SEARCH'] },
-                        { id: 807, name: 'menuName_logMgr_dashboard3', module: 'logMgr/dashboard3', functions: ['SEARCH'] },
-                        { id: 808, name: 'menuName_logMgr_dashboard4', module: 'logMgr/dashboard4', functions: ['SEARCH'] }
                     ]
                 },
                 {
@@ -102,46 +64,12 @@ module.exports = [
             'data': [
                 { id: 1, name: 'menuName_home', module: 'home', display: 1 },
                 {
-                    id:7,
-                    name:'menuName_tBase',
+                    id: 7,
+                    name: 'menuName_contentMgr',
                     list:[
-                        {
-                            id:70,
-                            name:'menuName_tBase_dev',
-                            list:[
-                                { id: 700, name: 'menuName_tBase_authentication', module: 'tBase/authentication', display: 1 },
-                                { id: 701, name: 'menuName_tBase_database', module: 'tBase/database', display: 1 },
-                                { id: 702, name: 'menuName_tBase_storage', module: 'tBase/storage', display: 1 },
-                                { id: 703, name: 'menuName_tBase_hosting', module: 'tBase/hosting', display: 1 },
-                                { id: 704, name: 'menuName_tBase_function', module: 'tBase/function', display: 1 },
-                                { id: 705, name: 'menuName_tBase_mlKit', module: 'tBase/mlKit', display: 1 },
-                            ]
-                        },
-                        {
-                            id:71,
-                            name:'menuName_tBase_quality',
-                            list:[
-                                { id: 710, name: 'menuName_tBase_carshlytics', module: 'tBase/carshlytics', display: 1 },
-                                { id: 711, name: 'menuName_tBase_performance', module: 'tBase/performance', display: 1 },
-                                { id: 712, name: 'menuName_tBase_testLab', module: 'tBase/testLab', display: 1 },
-                            ]
-                        },
-                        {
-                            id:72,
-                            name:'menuName_tBase_analyse',
-                            list:[
-                                { id: 720, name: 'menuName_tBase_dashboard', module: 'tBase/dashboard', display: 1 },
-                                { id: 721, name: 'menuName_tBase_events', module: 'tBase/events', display: 1 },
-                                { id: 722, name: 'menuName_tBase_conversions', module: 'tBase/conversions', display: 1 },
-                                { id: 723, name: 'menuName_tBase_audiences', module: 'tBase/audiences', display: 1 },
-                                { id: 724, name: 'menuName_tBase_funnels', module: 'tBase/funnels', display: 1 },
-                                { id: 725, name: 'menuName_tBase_userProperties', module: 'tBase/userProperties', display: 1 },
-                                { id: 726, name: 'menuName_tBase_latestRelease', module: 'tBase/latestRelease', display: 1 },
-                                { id: 727, name: 'menuName_tBase_retention', module: 'tBase/retention', display: 1 },
-                                { id: 728, name: 'menuName_tBase_streamView', module: 'tBase/streamView', display: 1 },
-                                { id: 729, name: 'menuName_tBase_debugView', module: 'tBase/debugView', display: 1 },
-                            ]
-                        }
+                        { id: 700, name: 'menuName_contentMgr_OGC', module: 'contentMgr/OGC'},
+                        { id: 701, name: 'menuName_contentMgr_PGC', module: 'contentMgr/PGC'},
+                        { id: 702, name: 'menuName_contentMgr_UGC', module: 'contentMgr/UGC'},
                     ]
                 },
                 {
@@ -154,10 +82,6 @@ module.exports = [
                         { id: 803, name: 'menuName_logMgr_care_suggestion', module: 'logMgr/care_suggestion', display: 1 },
                         { id: 804, name: 'menuName_logMgr_care_electron_card', module: 'logMgr/care_electron_card', display: 1 },
                         { id: 805, name: 'menuName_logMgr_ub_analysis', module: 'logMgr/ub_analysis', display: 1 },
-                        // { id: 806, name: 'menuName_logMgr_dashboard', module: 'logMgr/dashboard', display: 1 },
-                        { id: 806, name: 'menuName_logMgr_dashboard2', module: 'logMgr/dashboard2', display: 1 },
-                        { id: 807, name: 'menuName_logMgr_dashboard3', module: 'logMgr/dashboard3', display: 1 },
-                        { id: 808, name: 'menuName_logMgr_dashboard4', module: 'logMgr/dashboard4', display: 1 }
                     ]
                 },
                 {

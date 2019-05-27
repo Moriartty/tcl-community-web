@@ -38,7 +38,7 @@ class Role extends React.Component {
                             <div className="header">
                                 <div className="desc"><span className="am-badge">角色描述</span>：{role.desc}</div>
                                 {
-                                    !['系统管理员', '商家', '补货员', '仓库管理员'].include(role.name) && (
+                                    !['系统管理员'].include(role.name) && (
                                         <div className="actions">
                                             {
                                                 operations.indexOf('UPDATE') >= 0 && <Button ghost size="small" shape="circle" onClick={onEdit.bind(this, role)} icon="edit" type="primary" className="margin-right-sm"/>

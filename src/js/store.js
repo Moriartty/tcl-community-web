@@ -1,9 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import {createLogger} from 'redux-logger';
 import RootReducer from './reducers';
 import action from 'actions/app';
+const logger = createLogger();
 
-const store = createStore(RootReducer, applyMiddleware(thunk));
+const store = createStore(RootReducer, applyMiddleware(thunk,logger));
 
 export function getUserInfo () {
     return store.getState().app.userInfo;

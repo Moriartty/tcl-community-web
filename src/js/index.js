@@ -22,7 +22,7 @@ import MasterPage from 'components/App/MasterPage';
 // 加载全局样式
 import 'less/app.less';
 
-// import 'utils/polyfill';
+import 'utils/polyfill';
 // SVG字体
 import 'utils/iconfont';
 const ReactDOM = require('react-dom');// react-intl语言包

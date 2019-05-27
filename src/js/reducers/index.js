@@ -14,14 +14,7 @@ import care_problem_report from './care_problem_report';
 import care_electron_card from './care_electron_card';
 import care_suggestion from './care_suggestion';
 import care_survey_online from './care_survey_online';
-import dashboard from './dashboard';
-import dashboard2 from './dashboard2';
-import dashboard5 from './dashboard5'
-import dashboardDefect from "./dashboardDefect";
-import dashboard3 from './dashboard3';
-import streamView from './streamView';
-import conversions from './conversions';
-import events from './events';
+import ogc from './ogc';
 
 export default combineReducers({
     app,
@@ -36,21 +29,5 @@ export default combineReducers({
     care_electron_card,
     care_suggestion,
     care_survey_online,
-    dashboard,
-    dashboard2,
-    dashboard3,
-    dashboard5,
-    dashboardDefect,
-    streamView,
-    conversions,
-    events
-
-    // home,
-    // ...news,
-    // ...schoolDaily,
-    /// / feedback,
-    /// / ...teaching,
-    // ...flow,
-    /// / ...news,
-    /// / ...system
+    ogc
 });

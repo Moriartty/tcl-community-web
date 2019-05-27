@@ -2,12 +2,12 @@
  * 原生对象的扩展方法
  */
 
-/**
- * Promise（webpack构建后的代码竟然用了Promise，所以在此做兼容）
- */
-if (!window.Promise) {
-    window.Promise = require('tf-utils/class/Promise').default;
-}
+// /**
+//  * Promise（webpack构建后的代码竟然用了Promise，所以在此做兼容）
+//  */
+// if (!window.Promise) {
+//     window.Promise = require('tf-utils/class/Promise').default;
+// }
 
 /**
  * 兼容数组find方法

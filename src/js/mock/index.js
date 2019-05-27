@@ -11,7 +11,7 @@ let mockList = [];
 mockList = mockList.concat(require('./login'));
 mockList = mockList.concat(require('./system'));
 mockList = mockList.concat(require('./log'));
-mockList = mockList.concat(require('./tbase'));
+mockList = mockList.concat(require('./content'));
 
 let mockData = {};
 

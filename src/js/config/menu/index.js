@@ -1,10 +1,10 @@
 import systemConfig from './systemConfig';
 import logMgr from './logMgr';
-import tBase from './tBase';
+import contentMgr from './contentMgr';
 export default {
     ...systemConfig,
     ...logMgr,
-    ...tBase,
+    ...contentMgr,
     home: {
         name: 'menuName_home',
         icon: 'home',

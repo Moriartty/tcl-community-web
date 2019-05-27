@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Avatar } from 'antd';
-import defaultAvatar from 'img/logo.png';
+import defaultAvatar from 'img/logo.svg';
 import appAction from 'actions/app';
 import Icon from 'components/Icon';
 

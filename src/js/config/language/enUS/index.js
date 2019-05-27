@@ -4,7 +4,7 @@ import operations from './operations';
 import login from './login';
 import systemConfig from './systemConfig';
 import logMgr from './logMgr';
-import tBase from './tBase';
+import contentMgr from './contentMgr';
 
 let enUS = {};
 export default Object.assign(
@@ -14,5 +14,5 @@ export default Object.assign(
     systemConfig,
     operations,
     logMgr,
-    tBase
+    contentMgr
 );

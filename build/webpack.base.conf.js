@@ -6,7 +6,7 @@ const HappyPack = require('happypack');
 
 const path=require('path');
 const theme=require('../theme');
-const APP_NAME='Teye';
+const APP_NAME='TCL-Community';
 //
 // /**
 //  * 动态查找所有入口文件,暂时没什么用
@@ -62,7 +62,7 @@ var plugins = [
             collapseWhitespace: true         //是否去除空格
         },
         chunks:['login', 'vendor'],
-        favicon:'./src/img/logo.png',
+        favicon:'./src/img/logo.svg',
         template:'./src/login.html',
         filename:'./login.html' //结合output.path
     }),
@@ -74,7 +74,7 @@ var plugins = [
             collapseWhitespace: true         //是否去除空格
         },
         chunks:['app', 'vendor'],
-        favicon:'./src/img/logo.png',
+        favicon:'./src/img/logo.svg',
         template:'./src/index.html',
         filename:'./index.html' //结合output.path
     }),
@@ -103,8 +103,8 @@ var plugins = [
     new webpack.ProvidePlugin({
         React:'react',
         Img:'components/Img',
-        'APP_LOGO_EN':'img/favicon_en.png',
-        'APP_LOGO_ZH':'img/favicon_zh.png'
+        'APP_LOGO_EN':'img/favicon_en.svg',
+        'APP_LOGO_ZH':'img/favicon_zh.svg'
     }),
     new webpack.DefinePlugin({
         'APP_NAME': JSON.stringify(APP_NAME),

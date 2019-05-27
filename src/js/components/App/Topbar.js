@@ -6,7 +6,7 @@ import LocaleToggle from 'components/LocaleToggle';
 import { FormattedMessage, injectIntl } from 'react-intl';
 const { Header } = Layout;
 import PotentialError from 'components/PotentialError';
-import defaultAvatar from 'img/logo.png';
+import defaultAvatar from 'img/logo.svg';
 import screenfull from 'screenfull';
 import { isAuthenticated } from '../../utils/Session'
 
