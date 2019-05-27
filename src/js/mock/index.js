@@ -1,5 +1,7 @@
 import Mock from 'mockjs';
 import api from 'config/api';
+let FetchMock =  require('fetch-mock');
+FetchMock.config.fallbackToNetwork = true;
 // api.ftpBaseUrl='';
 
 Mock.setup({
@@ -17,6 +19,8 @@ let mockData = {};
 
 mockList.forEach((obj) => {
     mockData[obj.url] = obj.result;
+    //mockJs无法处理fetch请求，需要fetch-mock,为了过滤参数，使用正则表达式
+    FetchMock.once(RegExp(api.baseUrl+obj.url+'.*'),Mock.mock(obj.result));
 });
 
 function mockServer (url) {
@@ -24,5 +28,6 @@ function mockServer (url) {
         Mock.mock(api.baseUrl + url, mockData[url]);
     }
 }
+
 
 module.exports = mockServer;

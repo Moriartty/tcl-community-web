@@ -2,14 +2,16 @@ import React from 'react';
 import ajax from 'utils/ajax';
 import menuConfig from 'config/menu';
 import NProgress from 'nprogress';
-import {proBaseUrl} from "config/api"
+import {proBaseUrl} from "config/api";
+import {get,post} from 'utils/fetch';
 
 const Err403 = (cb) => { require.ensure([], require => { cb(require('pages/Error/403')); }); };
 let action = {};
 
 action.getActivityCount = () => dispatch =>{
-    ajax.get('/report/getActivityCount?packageName=flink-com.tclhz.gallery').then((data)=>{
-        console.log(data);
+
+    return get('/report/getActivityCount',{packageName:'flink-com.tclhz.gallery'}).then((data)=>{
+        console.log('fetch',data);
     })
 }
 
@@ -23,14 +25,14 @@ action.toggleLocale = newLocale => (dispatch) => {
 /**
  * 获取指定region数据
  */
-action.loadRegion = (coun,tag,props) => dispatch => {
-    const country = coun?coun:'world';
-    if(country){
-        ajax.raw('get','/json/'+country+'.json',{},location.host?'http://'+location.host:proBaseUrl).then(json=>{
-            dispatch({type:tag,...props,mapJsonData: json})
-        })
-    }
-}
+// action.loadRegion = (coun,tag,props) => dispatch => {
+//     const country = coun?coun:'world';
+//     if(country){
+//         ajax.raw('get','/json/'+country+'.json',{},location.host?'http://'+location.host:proBaseUrl).then(json=>{
+//             dispatch({type:tag,...props,mapJsonData: json})
+//         })
+//     }
+// }
 
 /**
  * 点点菜单链接加载页面
@@ -111,7 +113,7 @@ action.loadLinkPage = module => (dispatch, getState) => {
  * 加载常用入口列表
  * @returns {Function}
  */
-action.loadEntryMenu = () => (dispatch, getState) => ajax.get('/home/entry').then(list => {
+action.loadEntryMenu = () => (dispatch, getState) => get('/home/entry').then(list => {
     const menuObj = getState().app.menuObj;
     dispatch({ type: 'APP_ENTRY_MENU_LOAD',
         data: [
@@ -134,7 +136,7 @@ action.login = (loginName, password, autoLogin) => dispatch => {
     // return ajax.get('/perf/getAllData',{name:'moriarty'}).then(info => {
     //     console.log(info);
     // })
-    return ajax.post('/login', {
+    return post('/login', {
         loginName: loginName,
         loginPwd: password,
         auto: autoLogin ? 1 : 0
@@ -155,15 +157,15 @@ action.login = (loginName, password, autoLogin) => dispatch => {
  * 退出
  * @returns {Function}
  */
-action.logout = () => dispatch => ajax.post('/logout').then(() => {
+action.logout = () => dispatch => post('/logout').then(() => {
     dispatch({ type: 'APP_LOGOUT' });
 });
 
 /**
  * 加载用户信息
  */
-action.loadUserInfo = () => dispatch => ajax.get('/profile').then(data => {
-    dispatch({ type: 'APP_SET_USER_INFO', info: data });
+action.loadUserInfo = () => dispatch => get('/profile').then(data => {
+    dispatch({ type: 'APP_SET_USER_INFO', info: data.data });
     return data;
 });
 
@@ -171,9 +173,10 @@ action.loadUserInfo = () => dispatch => ajax.get('/profile').then(data => {
  * 加载用户菜单信息
  * @returns {Function}
  */
-action.loadUserMenu = (reloadOnly) => dispatch => ajax.get('/menu/user').then(data => {
+action.loadUserMenu = (reloadOnly) => dispatch => get('/menu/user').then(resp => {
     // console.log(data);
     // url -> obj
+    const data = resp.data;
     let obj = {
         // 固定菜单页面
         home: menuConfig.home,
@@ -242,7 +245,7 @@ action.loadUserMenu = (reloadOnly) => dispatch => ajax.get('/menu/user').then(da
 /**
  * 获取当前日期信息
  */
-action.loadDataInfo = () => dispatch => ajax.get('/common/current-date').then(info => {
+action.loadDataInfo = () => dispatch => get('/common/current-date').then(info => {
     dispatch({ type: 'APP_DATE_INFO', info });
 });
 

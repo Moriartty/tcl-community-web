@@ -35,7 +35,7 @@ const apiTest = [
     '/report/userEngagement',
     '/report/index/getPainSpotList',
     '/report/getAppList',
-    '/report/getActivityCount?packageName=flink-com.tclhz.gallery',
+    '/report/getActivityCount',
 ];
 
 export {apiTest,resourceBaseUrl,proBaseUrl,devBaseUrl}

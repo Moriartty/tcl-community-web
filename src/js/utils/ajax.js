@@ -6,12 +6,12 @@ const Err50x = (cb) => { require.ensure([], require => { cb(require('pages/Error
 import {apiTest} from 'config/api';
 
 function ajax (method, url, data = {}, baseUrl, isRaw, isFormData) {
-    if (apiTest.indexOf(url) == -1) {
-        // 虚拟接口服务
-        require('../mock')(url, data);
-        data = '';
-        method = 'GET';
-    }
+    // if (apiTest.indexOf(url) == -1) {
+    //     // 虚拟接口服务
+    //     require('../mock')(url, data);
+    //     data = '';
+    //     method = 'GET';
+    // }
     // 空字符串字段不传出去
     for (let key in data) {
         if (data[key] === '') {
