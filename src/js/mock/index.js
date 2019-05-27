@@ -1,6 +1,7 @@
 import Mock from 'mockjs';
 import api from 'config/api';
 let FetchMock =  require('fetch-mock');
+//匹配不到则走网络
 FetchMock.config.fallbackToNetwork = true;
 // api.ftpBaseUrl='';
 

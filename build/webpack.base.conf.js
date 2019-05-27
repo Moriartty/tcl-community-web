@@ -62,7 +62,7 @@ var plugins = [
             collapseWhitespace: true         //是否去除空格
         },
         chunks:['login', 'vendor'],
-        favicon:'./src/img/logo.svg',
+        favicon:'./src/img/favicon.icon',
         template:'./src/login.html',
         filename:'./login.html' //结合output.path
     }),
@@ -74,7 +74,7 @@ var plugins = [
             collapseWhitespace: true         //是否去除空格
         },
         chunks:['app', 'vendor'],
-        favicon:'./src/img/logo.svg',
+        favicon:'./src/img/favicon.icon',
         template:'./src/index.html',
         filename:'./index.html' //结合output.path
     }),
