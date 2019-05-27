@@ -18,18 +18,6 @@ module.exports = [
                     ]
                 },
                 {
-                    id: 8,
-                    name: 'menuName_logMgr',
-                    list: [
-                        { id: 800, name: 'menuName_logMgr_ub_analysis', module: 'logMgr/ub_analysis', functions: ['SEARCH'] },
-                        { id: 801, name: 'menuName_logMgr_care_survey_online', module: 'logMgr/care_survey_online', functions: ['SEARCH'] },
-                        { id: 802, name: 'menuName_logMgr_care_problem_report', module: 'logMgr/care_problem_report', functions: ['SEARCH'] },
-                        { id: 803, name: 'menuName_logMgr_care_suggestion', module: 'logMgr/care_suggestion', functions: ['SEARCH'] },
-                        { id: 804, name: 'menuName_logMgr_care_electron_card', module: 'logMgr/care_electron_card', functions: ['SEARCH'] },
-                        { id: 805, name: 'menuName_logMgr_logView', module: 'logMgr/logView', functions: ['SEARCH'] },
-                    ]
-                },
-                {
                     id: 9,
                     name: 'menuName_systemConfig',
                     list: [
@@ -70,18 +58,6 @@ module.exports = [
                         { id: 700, name: 'menuName_contentMgr_OGC', module: 'contentMgr/OGC'},
                         { id: 701, name: 'menuName_contentMgr_PGC', module: 'contentMgr/PGC'},
                         { id: 702, name: 'menuName_contentMgr_UGC', module: 'contentMgr/UGC'},
-                    ]
-                },
-                {
-                    id: 8,
-                    name: 'menuName_logMgr',
-                    list: [
-                        { id: 800, name: 'menuName_logMgr_logView', module: 'logMgr/logView', display: 1 },
-                        { id: 801, name: 'menuName_logMgr_care_survey_online', module: 'logMgr/care_survey_online', display: 1 },
-                        { id: 802, name: 'menuName_logMgr_care_problem_report', module: 'logMgr/care_problem_report', display: 1 },
-                        { id: 803, name: 'menuName_logMgr_care_suggestion', module: 'logMgr/care_suggestion', display: 1 },
-                        { id: 804, name: 'menuName_logMgr_care_electron_card', module: 'logMgr/care_electron_card', display: 1 },
-                        { id: 805, name: 'menuName_logMgr_ub_analysis', module: 'logMgr/ub_analysis', display: 1 },
                     ]
                 },
                 {

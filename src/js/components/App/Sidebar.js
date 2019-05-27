@@ -87,7 +87,7 @@ class Sidebar extends React.Component {
                     collapsible
                     collapsed={this.state.collapsed}>
                     {/*<SidebarInfo/>*/}
-                    <div class="logo">
+                    <div className="logo">
                         <img src={locale=='zh-CN'?APP_LOGO_ZH:APP_LOGO_EN} style={{ height: 35, marginRight: 5 }}/>
                     </div>
                     <div className="menu-wrapper">

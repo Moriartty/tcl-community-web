@@ -7,6 +7,12 @@ import {proBaseUrl} from "config/api"
 const Err403 = (cb) => { require.ensure([], require => { cb(require('pages/Error/403')); }); };
 let action = {};
 
+action.getActivityCount = () => dispatch =>{
+    ajax.get('/report/getActivityCount?packageName=flink-com.tclhz.gallery').then((data)=>{
+        console.log(data);
+    })
+}
+
 
 /**
  * 切换语言

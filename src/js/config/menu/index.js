@@ -1,9 +1,8 @@
 import systemConfig from './systemConfig';
-import logMgr from './logMgr';
 import contentMgr from './contentMgr';
+
 export default {
     ...systemConfig,
-    ...logMgr,
     ...contentMgr,
     home: {
         name: 'menuName_home',
