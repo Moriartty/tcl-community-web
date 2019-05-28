@@ -21,7 +21,9 @@ let mockData = {};
 mockList.forEach((obj) => {
     mockData[obj.url] = obj.result;
     //mockJs无法处理fetch请求，需要fetch-mock,为了过滤参数，使用正则表达式
-    FetchMock.once(RegExp(api.baseUrl+obj.url+'.*'),Mock.mock(obj.result));
+    FetchMock.mock(api.baseUrl+obj.url,Mock.mock(obj.result));
+    // FetchMock.mock(RegExp(api.baseUrl+obj.url),Mock.mock(obj.result));
+
 });
 
 function mockServer (url) {

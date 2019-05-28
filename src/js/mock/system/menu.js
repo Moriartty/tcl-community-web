@@ -15,6 +15,7 @@ module.exports = [
                         { id: 700, name: 'menuName_contentMgr_OGC', module: 'contentMgr/OGC', functions: ['SEARCH'] },
                         { id: 701, name: 'menuName_contentMgr_PGC', module: 'contentMgr/PGC', functions: ['SEARCH'] },
                         { id: 702, name: 'menuName_contentMgr_UGC', module: 'contentMgr/UGC', functions: ['SEARCH'] },
+                        { id: 703, name: 'menuName_contentMgr_RichTextEditor', module: 'contentMgr/RichTextEditor',functions: ['SEARCH']},
                     ]
                 },
                 {
@@ -24,7 +25,6 @@ module.exports = [
                         { id: 900, name: 'menuName_systemConfig_role', module: 'systemConfig/role', functions: ['CREATE', 'UPDATE', 'DELETE'] },
                         { id: 901, name: 'menuName_systemConfig_menu', module: 'systemConfig/menu', functions: ['CREATE', 'UPDATE', 'EDIT', 'DELETE'] },
                         { id: 902, name: 'menuName_systemConfig_user', module: 'systemConfig/user', functions: ['CREATE', 'UPDATE', 'DELETE', 'ADD_STAFF', 'ADD_ORG', 'RESET', 'LEAVE'] },
-                        { id: 903, name: 'menuName_systemConfig_autoTask', module: 'systemConfig/autoTask', functions: [] }
                     ]
                 }
             ]
@@ -58,6 +58,7 @@ module.exports = [
                         { id: 700, name: 'menuName_contentMgr_OGC', module: 'contentMgr/OGC'},
                         { id: 701, name: 'menuName_contentMgr_PGC', module: 'contentMgr/PGC'},
                         { id: 702, name: 'menuName_contentMgr_UGC', module: 'contentMgr/UGC'},
+                        { id: 703, name: 'menuName_contentMgr_RichTextEditor', module: 'contentMgr/RichTextEditor'},
                     ]
                 },
                 {
@@ -67,7 +68,6 @@ module.exports = [
                         { id: 900, name: 'menuName_systemConfig_role', module: 'systemConfig/role', display: 1 },
                         { id: 901, name: 'menuName_systemConfig_menu', module: 'systemConfig/menu', display: 1 },
                         { id: 902, name: 'menuName_systemConfig_user', module: 'systemConfig/user', display: 1 },
-                        { id: 903, name: 'menuName_systemConfig_autoTask', module: 'systemConfig/autoTask', display: 1 }
 
                     ],
                     display: 1

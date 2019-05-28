@@ -1,5 +1,5 @@
 import React from 'react';
-import ajax from 'utils/ajax';
+
 import menuConfig from 'config/menu';
 import NProgress from 'nprogress';
 import {proBaseUrl} from "config/api";
@@ -11,7 +11,7 @@ let action = {};
 action.getActivityCount = () => dispatch =>{
 
     return get('/report/getActivityCount',{packageName:'flink-com.tclhz.gallery'}).then((data)=>{
-        console.log('fetch',data);
+        // console.log('fetch',data);
     })
 }
 
@@ -37,7 +37,6 @@ action.toggleLocale = newLocale => (dispatch) => {
 /**
  * 点点菜单链接加载页面
  * @param module
- * git test
  */
 action.loadTabPage = (module) => (dispatch, getState) => {
     const state = getState().app;
@@ -165,7 +164,7 @@ action.logout = () => dispatch => post('/logout').then(() => {
  * 加载用户信息
  */
 action.loadUserInfo = () => dispatch => get('/profile').then(data => {
-    dispatch({ type: 'APP_SET_USER_INFO', info: data.data });
+    dispatch({ type: 'APP_SET_USER_INFO', info: data });
     return data;
 });
 
@@ -173,10 +172,10 @@ action.loadUserInfo = () => dispatch => get('/profile').then(data => {
  * 加载用户菜单信息
  * @returns {Function}
  */
-action.loadUserMenu = (reloadOnly) => dispatch => get('/menu/user').then(resp => {
+action.loadUserMenu = (reloadOnly) => dispatch => get('/menu/user').then(data => {
     // console.log(data);
     // url -> obj
-    const data = resp.data;
+
     let obj = {
         // 固定菜单页面
         home: menuConfig.home,

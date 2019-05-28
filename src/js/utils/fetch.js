@@ -1,5 +1,4 @@
 import API,{apiTest} from 'config/api';
-// import $ajax from 'tf-utils/lib/ajax';
 import { message } from 'antd';
 const ReactDOM = require('react-dom');
 const Err50x = (cb) => { require.ensure([], require => { cb(require('pages/Error/50x')); }); };
@@ -35,14 +34,10 @@ function getUriParams(data){
     return encodeURIComponent(params.join('&'));
 }
 function get (url,params,opts) {
-    if (apiTest.indexOf(url) == -1) {
-        console.log('mockUrl',url);
-        // 虚拟接口服务
-        require('../mock')(url);
-    }
-    console.log('trueUrl',url);
-
-    if(params&&JSON.stringify(params)!=='{}')
+    // 虚拟接口服务
+    require('../mock')(url);
+    //非模拟接口并且有参数才拼接参数
+    if(apiTest.indexOf(url)>-1&&params&&JSON.stringify(params)!=='{}')
         url = url+'?'+getUriParams(params);
 
     return fetch(API.baseUrl+url, {
@@ -99,9 +94,17 @@ function put (url, params,opts) {
 
 function handleResponse (url, response) {
     if(response.ok||response.status==301||response.status==302)
-        return response.json();
+        return new Promise((resolve,reject)=>{
+            response.json().then(resp=>resolve(resp.data));
+        });
+    else if(~[502, 503, 504].indexOf(response.status)){
+        Err50x(component => {
+            ReactDOM.render(React.createElement(component), document.getElementById('container'));
+        });
+    }
     else {
         console.error(`Request failed. Url = ${url} . Message = ${response.statusText}`);
+        message.error('【' + status + '】' + statusText);
         return {error: {message: 'Request failed due to server error '}};
     }
 }

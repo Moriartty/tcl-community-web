@@ -23,4 +23,12 @@ export default {
         ],
         page: (cb) => { require.ensure([], require => { cb(require('pages/UGC')); }, 'UGC'); }
     },
+    'contentMgr/RichTextEditor': {
+        name: 'menuName_contentMgr_RichTextEditor',
+        icon: 'bars',
+        operations: [
+            { key: 'SEARCH', name: 'logView_operation_search' }
+        ],
+        page: (cb) => { require.ensure([], require => { cb(require('pages/UGC')); }, 'RichTextEditor'); }
+    },
 }

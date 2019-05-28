@@ -1,11 +1,12 @@
-import ajax from 'utils/ajax';
+
+import {get,post} from 'utils/fetch';
 let action = {};
 
 /**
  * 加载组织数据
  * @returns {Function}
  */
-action.loadOrgData = () => dispatch => ajax.get('/org/tree').then(data => {
+action.loadOrgData = () => dispatch => get('/org/tree').then(data => {
     let listData = []; // 列状
     let treeData = data;
     // 递归计算附加属性
@@ -45,7 +46,7 @@ action.loadOrgData = () => dispatch => ajax.get('/org/tree').then(data => {
  */
 function addOrg (data) {
     return dispatch => {
-        return ajax.post('/org/create', {
+        return post('/org/create', {
             parentId: data.parentId,
             name: data.name
         });
@@ -60,7 +61,7 @@ action.addOrg = addOrg;
  */
 function updateOrg (data) {
     return dispatch => {
-        return ajax.post('/org/update', {
+        return post('/org/update', {
             id: data.id,
             parentId: data.parentId,
             name: data.name
@@ -76,7 +77,7 @@ action.updateOrg = updateOrg;
  */
 function deleteOrg (id) {
     return dispatch => {
-        return ajax.post('/org/delete', {
+        return post('/org/delete', {
             id: id
         });
     };
@@ -107,7 +108,7 @@ function loadUserPage (orgId, pageNo = 1) {
         dispatch({ type: 'USER_LOADING', loading: true });
         const state = getState().user;
         const params = state.searchParams;
-        return ajax.get('/user', {
+        return get('/user', {
             pageNo: pageNo,
             pageSize: params.pageSize,
             name: state.userSearchKey,
@@ -143,7 +144,7 @@ action.loadUserPage = loadUserPage;
  */
 function loadUserInfo (id) {
     return dispatch => {
-        return ajax.get('/user/info', {
+        return get('/user/info', {
             id: id
         }).then(data => {
             // 组织
@@ -175,7 +176,7 @@ function addUser (data) {
         if (!data.password) {
             data.password = '123456';
         }
-        return ajax.post('/user/create', data);
+        return post('/user/create', data);
     };
 }
 action.addUser = addUser;
@@ -187,7 +188,7 @@ action.addUser = addUser;
  */
 function updateUser (data) {
     return dispatch => {
-        return ajax.post('/user/update', data);
+        return post('/user/update', data);
     };
 }
 action.updateUser = updateUser;
@@ -199,7 +200,7 @@ action.updateUser = updateUser;
  */
 function dismissUser (id) {
     return dispatch => {
-        return ajax.post('/user/dismiss', {
+        return post('/user/dismiss', {
             id: id
         });
     };
@@ -213,7 +214,7 @@ action.dismissUser = dismissUser;
  */
 function resetPassword (id) {
     return dispatch => {
-        return ajax.post('/user/password-reset', {
+        return post('/user/password-reset', {
             id: id,
             password: '123456'
         });

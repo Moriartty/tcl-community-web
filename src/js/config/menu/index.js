@@ -7,11 +7,17 @@ export default {
     home: {
         name: 'menuName_home',
         icon: 'home',
+        operations: [
+            { key: 'SEARCH', name: 'logView_operation_search' }
+        ],
         page: (cb) => { require.ensure([], require => { cb(require('pages/Home')); }, 'home'); }
     },
     profile: {
         name: 'menuName_profile',
         icon: 'user',
+        operations: [
+            { key: 'SEARCH', name: 'logView_operation_search' }
+        ],
         page: (cb) => { require.ensure([], require => { cb(require('pages/Profile')); }, 'profile'); }
     }
 };

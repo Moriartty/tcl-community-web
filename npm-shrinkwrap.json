@@ -10880,26 +10880,6 @@
       "integrity": "sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=",
       "dev": true
     },
-    "tf-react-cpn": {
-      "version": "2.2.1",
-      "resolved": "http://registry.npm.taobao.org/tf-react-cpn/download/tf-react-cpn-2.2.1.tgz",
-      "integrity": "sha1-p0N0Plri2OXqqqCgm9cdMaahM3I=",
-      "requires": {
-        "tf-utils": "2.2.4"
-      },
-      "dependencies": {
-        "tf-utils": {
-          "version": "2.2.4",
-          "resolved": "http://registry.npm.taobao.org/tf-utils/download/tf-utils-2.2.4.tgz",
-          "integrity": "sha1-Iqucia12dVJvlexbdVztIlCl/yo="
-        }
-      }
-    },
-    "tf-utils": {
-      "version": "2.2.5",
-      "resolved": "https://registry.npmjs.org/tf-utils/-/tf-utils-2.2.5.tgz",
-      "integrity": "sha1-Q45PVIbFxV2lmXdIhQ7FtaYOoZs="
-    },
     "throttleit": {
       "version": "0.0.2",
       "resolved": "https://registry.npmjs.org/throttleit/-/throttleit-0.0.2.tgz",

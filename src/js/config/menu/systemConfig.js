@@ -34,18 +34,4 @@ export default {
         ],
         page: (cb) => { require.ensure([], require => { cb(require('pages/User')); }, 'user'); }
     },
-    'systemConfig/autoTask': {
-        name: 'menuName_systemConfig_autoTask',
-        icon: 'bars',
-        operations: [
-            // { key: 'CREATE', name: 'common_operation_add' },
-            // { key: 'UPDATE', name: 'common_operation_modify' },
-            // { key: 'DELETE', name: 'common_operation_delete' },
-            // { key: 'ADD_STAFF', name: 'user_operation_addStaff' },
-            // { key: 'ADD_ORG', name: 'user_operation_addOrg' },
-            // { key: 'RESET', name: 'user_operation_reset' },
-            // { key: 'LEAVE', name: 'user_operation_leave' }
-        ],
-        page: (cb) => { require.ensure([], require => { cb(require('pages/AutoTask')); }, 'autoTask'); }
-    }
 };

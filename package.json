@@ -36,10 +36,7 @@
     "redux": "3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "2.2.0",
-    "rxjs": "6.0.0-alpha.3",
-    "screenfull": "^4.2.0",
-    "tf-react-cpn": "^2.2.1",
-    "tf-utils": "^2.2.5"
+    "screenfull": "^4.2.0"
   },
   "devDependencies": {
     "babel-core": "6.26.0",

@@ -1,4 +1,4 @@
-import ajax from '../utils/ajax';
+
 import test,{get} from '../utils/fetch';
 let actions = {};
 
@@ -11,9 +11,7 @@ actions.loadList = (pageNo, pageSize) => (dispatch, getState) => {
     return get('/ogc', {
         pageNo: pageNo || page.pageNo,
         pageSize: pageSize || page.pageSize
-    }).then((resp) => {
-        const data = resp.data;
-        console.log('mock',data);
+    }).then((data) => {
         dispatch({ type: 'OGC_LOADING', loading: false });
         dispatch({
             type: 'OGC_LOAD',
@@ -23,22 +21,6 @@ actions.loadList = (pageNo, pageSize) => (dispatch, getState) => {
             list: data.result
         });
     });
-
-
-    // return ajax.get('/ogc', {
-    //     pageNo: pageNo || page.pageNo,
-    //     pageSize: pageSize || page.pageSize
-    // }).then((data) => {
-    //     console.log('mock',data);
-    //     dispatch({ type: 'OGC_LOADING', loading: false });
-    //     dispatch({
-    //         type: 'OGC_LOAD',
-    //         pageNo: pageNo || data.pageNo,
-    //         pageSize: data.pageSize,
-    //         dataCount: data.totalCount,
-    //         list: data.result
-    //     });
-    // });
 };
 
 export default actions;

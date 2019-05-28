@@ -1,4 +1,4 @@
-import ajax from 'utils/ajax';
+import {get,post} from 'utils/fetch';
 let action = {};
 
 /**
@@ -6,13 +6,13 @@ let action = {};
  * @param data
  * @returns {Function}
  */
-action.update = data => dispatch => ajax.post('/profile/update', data);
+action.update = data => dispatch => post('/profile/update', data);
 
 /**
  * 更新密码
  * @param data
  * @returns {Function}
  */
-action.updatePassword = data => dispatch => ajax.post('/profile/update-password', data);
+action.updatePassword = data => dispatch => post('/profile/update-password', data);
 
 export default action;

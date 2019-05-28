@@ -1,4 +1,4 @@
-import goTop from 'tf-utils/dom/goTop';
+// import goTop from 'tf-utils/dom/goTop';
 import { Icon,Button } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import Overlay from 'components/Overlay';
@@ -38,12 +38,12 @@ class Copyright extends React.PureComponent {
                     <Icon type={'search'}/>
                 </a>
 
-                <a href="javascript:;"
-                    onClick={() => { goTop(document.querySelector('.ant-tabs-tabpane-active.page-pane')); }}
-                    title="返回顶部"
-                    className="btn goTop">
-                    <Icon type="up"/>
-                </a>
+                {/*<a href="javascript:;"*/}
+                    {/*onClick={() => { goTop(document.querySelector('.ant-tabs-tabpane-active.page-pane')); }}*/}
+                    {/*title="返回顶部"*/}
+                    {/*className="btn goTop">*/}
+                    {/*<Icon type="up"/>*/}
+                {/*</a>*/}
             </div>
         );
     }

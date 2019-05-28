@@ -1,4 +1,5 @@
-import ajax from 'utils/ajax';
+
+import {get,post} from 'utils/fetch';
 import menuConfig from 'config/menu';
 let action = {};
 
@@ -6,7 +7,7 @@ let action = {};
  * 加载角色列表
  * @returns {Function}
  */
-action.loadList = () => dispatch => ajax.get('/role').then(list => {
+action.loadList = () => dispatch => get('/role').then(list => {
     dispatch({ type: 'ROLE_LIST', list: list });
 });
 
@@ -16,7 +17,7 @@ action.loadList = () => dispatch => ajax.get('/role').then(list => {
  */
 function loadMenuTree () {
     return dispatch => {
-        return ajax.get('/menu').then(data => {
+        return get('/menu').then(data => {
             let treeData = [
                 { id: '0', name: 'menuName_permission', icon: 'am-icon-home', list: data }
             ];
@@ -24,7 +25,6 @@ function loadMenuTree () {
             const recursive = function (item) {
                 // id统一转化为字符串
                 item.id = String(item.id);
-
                 // 手动添加操作权限
                 if (item.module && menuConfig[item.module].operations) { // 过滤出菜单
                     item.list = menuConfig[item.module].operations.map(o => {
@@ -67,7 +67,7 @@ action.loadMenuTree = loadMenuTree;
 function selectRole (role) {
     return dispatch => {
         dispatch({ type: 'ROLE_SELECT', role: role });
-        return ajax.get('/role/auth', {
+        return get('/role/auth', {
             id: role.id
         }).then(data => {
             let roleAuth = [];
@@ -98,7 +98,7 @@ action.selectRole = selectRole;
  */
 function updateRoleMenu (roleId, data) {
     return dispatch => {
-        return ajax.post('/role/auth-update', {
+        return post('/role/auth-update', {
             id: roleId,
             data: JSON.stringify(data)
         });
@@ -113,7 +113,7 @@ action.updateRoleMenu = updateRoleMenu;
  */
 function addRole (data) {
     return dispatch => {
-        return ajax.post('/role/create', {
+        return post('/role/create', {
             name: data.name,
             desc: data.desc
         });
@@ -128,7 +128,7 @@ action.addRole = addRole;
  */
 function updateRole (data) {
     return dispatch => {
-        return ajax.post('/role/update', {
+        return post('/role/update', {
             id: data.id,
             name: data.name,
             desc: data.desc
@@ -144,7 +144,7 @@ action.updateRole = updateRole;
  */
 function deleteRole (id) {
     return dispatch => {
-        return ajax.post('/role/delete', {
+        return post('/role/delete', {
             id: id
         }).then(() => {
             // 取消当前选择的角色

@@ -1,4 +1,5 @@
-import ajax from 'utils/ajax';
+
+import {post,get} from 'utils/fetch'
 import moment from 'moment';
 
 let PerformanceX = (WrappedComponent) => {

@@ -1,4 +1,5 @@
-import ajax from 'utils/ajax';
+
+import {get,post} from 'utils/fetch';
 let action = {};
 
 /**
@@ -8,7 +9,8 @@ let action = {};
 function loadList () {
     return (dispatch) => {
         dispatch({ type: 'MENU_LOADING', loading: true });
-        return ajax.get('/menu').then(data => {
+        return get('/menu').then(data => {
+            console.log('menu',data);
             let menuList = [];
             let treeData = [
                 { name: '(根目录)', list: data }
@@ -55,21 +57,21 @@ action.loadList = loadList;
  * @param data
  * @returns {Function}
  */
-action.addMenu = data => dispatch => ajax.post('/menu/create', data);
+action.addMenu = data => dispatch => post('/menu/create', data);
 
 /**
  * 更新菜单
  * @param data
  * @returns {Function}
  */
-action.updateMenu = data => dispatch => ajax.post('/menu/update', data);
+action.updateMenu = data => dispatch => post('/menu/update', data);
 
 /**
  * 删除菜单
  * @param id
  * @returns {Function}
  */
-action.deleteMenu = id => dispatch => ajax.post('/menu/delete', { id });
+action.deleteMenu = id => dispatch => post('/menu/delete', { id });
 
 /**
  * 移动菜单
@@ -77,6 +79,6 @@ action.deleteMenu = id => dispatch => ajax.post('/menu/delete', { id });
  * @param isUp 是否上移，否则下移
  * @returns {Function}
  */
-action.moveMenu = (id, isUp) => dispatch => ajax.post(isUp ? '/menu/up' : '/menu/down', { id });
+action.moveMenu = (id, isUp) => dispatch => post(isUp ? '/menu/up' : '/menu/down', { id });
 
 export default action;

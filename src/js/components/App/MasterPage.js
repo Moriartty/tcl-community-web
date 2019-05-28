@@ -70,7 +70,8 @@ class MasterPage extends React.Component {
                                 panes.map(pane => <TabPane className="page-pane"
                                                            tab={<span><Icon type={pane.icon}/><FormattedMessage id={pane.title}/></span>}
                                                            key={pane.key}
-                                                           closable={pane.key !== 'home'}>
+                                                           // closable={pane.key !== 'home'}
+                                >
                                     <PotentialError>
                                     {pane.component}
                                     </PotentialError>
