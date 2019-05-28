@@ -1,5 +1,5 @@
 
-import test,{get} from '../utils/fetch';
+import {get} from '../utils/fetch';
 let actions = {};
 
 actions.loadList = (pageNo, pageSize) => (dispatch, getState) => {

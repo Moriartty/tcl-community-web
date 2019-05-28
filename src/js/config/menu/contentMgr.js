@@ -29,6 +29,6 @@ export default {
         operations: [
             { key: 'SEARCH', name: 'logView_operation_search' }
         ],
-        page: (cb) => { require.ensure([], require => { cb(require('pages/UGC')); }, 'RichTextEditor'); }
+        page: (cb) => { require.ensure([], require => { cb(require('pages/RichTextEditor')); }, 'RichTextEditor'); }
     },
 }

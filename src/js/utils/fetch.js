@@ -13,8 +13,6 @@ const formHeaders = new Headers({
     'Content-Type': 'application/x-www-form-urlencoded'
 });
 
-
-
 var oldFetchfn = fetch; //拦截原始的fetch方法
 window.fetch = function(url, fetchOpts,opts={timeout:1000*20}){//定义新的fetch方法，封装原有的fetch方法
     var fetchPromise = oldFetchfn(url, fetchOpts);
@@ -24,7 +22,7 @@ window.fetch = function(url, fetchOpts,opts={timeout:1000*20}){//定义新的fet
         }, opts.timeout)
     });
     return Promise.race([fetchPromise, timeoutPromise])
-}
+};
 
 function getUriParams(data){
     var params = [];
@@ -33,6 +31,7 @@ function getUriParams(data){
     }
     return encodeURIComponent(params.join('&'));
 }
+
 function get (url,params,opts) {
     // 虚拟接口服务
     require('../mock')(url);
@@ -63,6 +62,7 @@ function post (url, params,opts) {
         return {error: {message: 'Request failed.'}};
     })
 }
+
 function postFile (url, params,opts) {
     return fetch(API.baseUrl+url, {
         method: 'POST',
