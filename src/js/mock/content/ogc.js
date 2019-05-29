@@ -11,17 +11,16 @@ module.exports = [
             'code': '0',
             'data': {
                 'pageNo': 1,
-                'pageSize': 10,
-                'totalCount': 2560,
-                'totalPages': 256,
+                'pageSize': 20,
+                'totalCount': 1000,
+                'totalPages': 50,
                 'result|10': [
                     {
                         id: '@increment',
-                        'execute_date': '2018-09-18',
-                        'android_id': '732cb*****d44807',
-                        'cu': '9008J-PFALBR3',
-                        'key': 'SETTINGS_SCREEN_BRIGHTNESS_MODE',
-                        'value': 'AUTOMATIC'
+                        title:'@ctitle',
+                        content:'@cparagraph',
+                        author: '@cname',
+                        happenTime:'@date(yyyy-MM-dd)'
                     }
                 ],
             }

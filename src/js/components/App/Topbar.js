@@ -34,15 +34,16 @@ class Topbar extends React.Component {
     };
 
     render () {
-        const { menuData, onMenuChange,locale,activeTab,userInfo,isLogin } = this.props;
+        const { menuData, onMenuChange,locale,activeTab,userInfo,isLogin,onNav,onLogout } = this.props;
         const { visible,icon } = this.state;
 
         const menu = (
             <Menu className='menu'>
                 <Menu.ItemGroup title='用户中心' className='menu-group'>
                     <Menu.Item>你好 - {isAuthenticated()}</Menu.Item>
-                    <Menu.Item>个人信息</Menu.Item>
-                    <Menu.Item><span onClick={this.logout}>退出登录</span></Menu.Item>
+                    <Menu.Item onClick={onNav.bind(this, 'profile')}>个人信息</Menu.Item>
+                    {/*<Menu.Item><span>切换系统</span></Menu.Item>*/}
+                    <Menu.Item><span onClick={onLogout}>退出登录</span></Menu.Item>
                 </Menu.ItemGroup>
                 <Menu.ItemGroup title='设置中心' className='menu-group'>
                     <Menu.Item>个人设置</Menu.Item>
@@ -126,6 +127,21 @@ Topbar = connect(state => {
                 else
                     dispatch(action.loadTabPage(item.list[0].module));
         }
+    },
+    /**
+     * 导航菜单页面
+     * @param module
+     */
+    onNav (module) {
+        dispatch(action.loadTabPage(module));
+    },
+    /**
+     * 退出
+     */
+    onLogout () {
+        dispatch(action.logout()).then(() => {
+            location.href = 'login.html';
+        });
     }
 }))(Topbar);
 

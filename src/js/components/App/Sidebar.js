@@ -16,12 +16,25 @@ class Sidebar extends React.Component {
     };
     componentWillMount(){
         const props = this.props;
+        this.findOpenKeys(props);
         // this.setState({openKeys:props.menuData&&props.menuData.map(o=>o.no)})
 
     }
 
     componentWillReceiveProps (nextProps) {
+        this.findOpenKeys(nextProps)
         // this.setState({openKeys:nextProps.menuData&&nextProps.menuData.map(o=>o.no)})
+    }
+
+    findOpenKeys = (props) => {
+        const menuData = props.menuData,activeTab = props.activeTab;
+        if(menuData&&activeTab){
+            let openKeys = props.menuData&&props.menuData.find(o=>{
+                if(o.name.split('_')[1]===props.activeTab.split('/')[0])
+                    return true;
+            });
+            openKeys && openKeys!=='{}'&& this.setState({ openKeys:[openKeys].map(o=>o.no) });
+        }
     }
 
     onOpenChange = (openKeys) => {
@@ -74,10 +87,8 @@ class Sidebar extends React.Component {
     }
 
     render () {
-        const { sidebarMenuData: menu, onClick,menuData,locale } = this.props;
-        // if (!menu.length) {
-        //     return <Sider className="sidebar" width={0}></Sider>;
-        // }
+        const { sidebarMenuData: menu, onClick,menuData,locale,activeTab } = this.props;
+        console.log(this.state.openKeys)
         return (
             <PotentialError>
                 <Sider
@@ -96,9 +107,12 @@ class Sidebar extends React.Component {
                             // theme={APP_EDITION=='jianjiao'?'light':'dark'}
                             theme={'dark'}
                             openKeys={this.state.openKeys}
+                            defaultSelectedKeys={[activeTab]}
+                            selectedKeys={[activeTab]}
                             onOpenChange={this.onOpenChange}
-                            selectable={false}
+                            selectable={true}
                             onClick={onClick}
+                            onSelect={(item)=>{console.log(item)}}
                             inlineCollapsed={true}
                         >
                             {

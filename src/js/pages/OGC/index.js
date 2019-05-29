@@ -5,6 +5,7 @@ import Table from './Table';
 import Toolbar from 'components/App/Toolbar';
 import SearchModal from './SearchModal';
 import {Button} from "antd"
+import EditModal from './EditModal';
 
 class OGC extends React.Component {
     constructor(props){
@@ -14,7 +15,7 @@ class OGC extends React.Component {
         }
     }
     componentWillMount () {
-        this.props.loadList();
+        this.props.init();
     }
     render () {
         const {onRefresh,onSearch} = this.props;
@@ -23,6 +24,7 @@ class OGC extends React.Component {
                 <Toolbar onRefresh={onRefresh}>
                     <Button onClick={() => { this.setState({ showSearchModal: true }); }} icon={'search'}>查询</Button>
                 </Toolbar>
+                <EditModal/>
                 <SearchModal
                     show={this.state.showSearchModal}
                     onSearch={onSearch}
@@ -34,12 +36,22 @@ class OGC extends React.Component {
 }
 
 OGC = connect(null, dispatch => ({
-    loadList () {
+    /**
+     * page数据初始化加载
+     */
+    init () {
         dispatch(action.loadList());
     },
+    /**
+     * 点击刷新或操作
+     */
     onRefresh(){
         dispatch(action.loadList());
     },
+    /**
+     * 查询
+     * @param params
+     */
     onSearch (params) {
         dispatch({ type: 'OGC_SEARCHPARAM_CHANGE', params });
         dispatch(action.loadList(1));

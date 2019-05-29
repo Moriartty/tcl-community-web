@@ -34,7 +34,7 @@ class InputFile extends React.PureComponent {
 }
 
 export default function ExFormItem (props) {
-    let { getFieldDecorator, type, label, help, name, style, initialValue, required, placeholder, extraRules, list:preList, onChange,withEmpty } = props;
+    let { getFieldDecorator, type, label, help, name, style, initialValue, required, placeholder, extraRules, list:preList, onChange,withEmpty,rows } = props;
     let component;
     let rules = [{ required, message: `${label}必填！` }];
     if (extraRules) {
@@ -81,7 +81,7 @@ export default function ExFormItem (props) {
         );
         break;
     case 'textarea':
-        component = <Input.TextArea type={type} placeholder={placeholder}/>;
+        component = <Input.TextArea type={type} placeholder={placeholder} rows={rows}/>;
         break;
     case 'switch':
         const { onText, offText } = props;

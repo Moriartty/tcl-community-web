@@ -8,8 +8,7 @@ const SearchForm = Form.create({
     mapPropsToFields: (props) => {
         const params = props.searchParams;
         return {
-            execute_date: Form.createFormField({ value: params.execute_date })
-            // endTime: Form.createFormField({ value: moment(params.endTime) })
+            title: Form.createFormField({ value: params.title })
         };
     }
 })(props => {
@@ -17,7 +16,7 @@ const SearchForm = Form.create({
     const { getFieldDecorator } = form;
     return (
         <Form>
-            <ExFormItem type={'date'} label={'Execute_Date'} name={'execute_date'} getFieldDecorator={getFieldDecorator}/>
+            <ExFormItem  label={'Title'} name={'title'} getFieldDecorator={getFieldDecorator}/>
         </Form>
     );
 });
@@ -36,7 +35,6 @@ class SearchModal extends React.Component {
     }
     render () {
         const { show, onClose,searchParams} = this.props;
-        console.log(searchParams);
         return (
             <ExModal
                 visible={show}
