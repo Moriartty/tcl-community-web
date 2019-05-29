@@ -88,7 +88,6 @@ class Sidebar extends React.Component {
 
     render () {
         const { sidebarMenuData: menu, onClick,menuData,locale,activeTab } = this.props;
-        console.log(this.state.openKeys)
         return (
             <PotentialError>
                 <Sider

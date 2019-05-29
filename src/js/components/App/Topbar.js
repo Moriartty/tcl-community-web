@@ -69,13 +69,15 @@ class Topbar extends React.Component {
                     <Row style={{ 'width': '100%' }}>
                         <Col className="header-left" xs={12} md={10} xl={7}>
                             <div className={'header-tools'}>
-                                <LocaleToggle/>
+                                {/*<LocaleToggle/>*/}
                             </div>
                         </Col>
                         <Col className="header-right" xs={12} md={14} xl={17}>
 
-                            <div style={{lineHeight: '50px', float: 'right'}}>
+                            <div style={{lineHeight: '50px', float: 'right',display:'flex'}}>
+                                <LocaleToggle/>
                                 <ul className='header-ul'>
+                                    {/*<li><LocaleToggle/></li>*/}
                                     <li><Icon type={icon} onClick={this.screenfullToggle}/></li>
                                     <li onClick={() => this.setState({count: 0})}>
                                         <Badge count={10} overflowCount={99} style={{marginRight: -17}}>

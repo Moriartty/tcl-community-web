@@ -64,7 +64,7 @@ class RichTextEditor extends React.Component{
                         </Card>
                     </Col>
                 </Row>
-                <BackTop visibilityHeight={200} style={{right: 50}}/>
+                <BackTop target={()=>document.querySelector('.ant-tabs-tabpane')} visibilityHeight={200} style={{right: 50}}/>
             </div>
         )
     }

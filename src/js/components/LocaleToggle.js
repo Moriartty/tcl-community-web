@@ -1,16 +1,32 @@
 import React from 'react';
-import { Radio } from 'antd';
+import { Radio,Dropdown,Menu,Icon } from 'antd';
 import action from 'actions/app';
 import { connect } from 'react-redux';
 
+const LanguageMap = {
+    'en-US':'English',
+    'zh-CN':'中文'
+};
+
 class LocaleToggle extends React.Component {
+    constructor(props){
+        super(props);
+    }
     render () {
         const curLocale = this.props.locale;
+        const menu = (
+            <Menu onClick={(item)=>this.props.changeLocale(item.key)}>
+                <Menu.Item key={'en-US'}><a>{LanguageMap['en-US']}</a></Menu.Item>
+                <Menu.Item key={'zh-CN'}><a>{LanguageMap['zh-CN']}</a></Menu.Item>
+            </Menu>
+        );
         return (
-            <Radio.Group size={'small'} onChange={this.props.changeLocale} defaultValue={curLocale}>
-                <Radio.Button key="en" value='en-US'>English</Radio.Button>
-                <Radio.Button key="cn" value='zh-CN'>中文</Radio.Button>
-            </Radio.Group>
+            <Dropdown overlay={menu}>
+                <a className="ant-dropdown-link" href="#">
+                    {LanguageMap[curLocale]} <Icon type="down" />
+                </a>
+            </Dropdown>
+
         );
     }
 }
@@ -19,8 +35,8 @@ LocaleToggle = connect(state => {
     const { locale } = state.app;
     return { locale };
 }, dispatch => ({
-    changeLocale (e) {
-        const localeValue = e.target.value;
+    changeLocale (key) {
+        const localeValue = key;
         dispatch(action.toggleLocale(localeValue));
     }
 }))(LocaleToggle);
