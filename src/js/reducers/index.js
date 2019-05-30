@@ -8,6 +8,7 @@ import menu from './menu';
 import user from './user';
 import home from './home';
 import ogc from './ogc';
+import tags from './tags';
 
 export default combineReducers({
     app,
@@ -15,5 +16,6 @@ export default combineReducers({
     menu,
     user,
     home,
-    ogc
+    ogc,
+    tags
 });

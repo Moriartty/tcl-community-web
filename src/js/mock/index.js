@@ -15,6 +15,7 @@ mockList = mockList.concat(require('./login'));
 mockList = mockList.concat(require('./system'));
 mockList = mockList.concat(require('./log'));
 mockList = mockList.concat(require('./content'));
+mockList = mockList.concat(require('./tags'));
 
 let mockData = {};
 

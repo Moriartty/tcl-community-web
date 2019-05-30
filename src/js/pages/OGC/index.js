@@ -6,6 +6,7 @@ import Toolbar from 'components/App/Toolbar';
 import SearchModal from './SearchModal';
 import {Button} from "antd"
 import EditModal from './EditModal';
+require('less/ogc.less');
 
 class OGC extends React.Component {
     constructor(props){
@@ -20,7 +21,7 @@ class OGC extends React.Component {
     render () {
         const {onRefresh,onSearch} = this.props;
         return (
-            <div>
+            <div className='ogcContainer'>
                 <Toolbar onRefresh={onRefresh}>
                     <Button onClick={() => { this.setState({ showSearchModal: true }); }} icon={'search'}>查询</Button>
                 </Toolbar>

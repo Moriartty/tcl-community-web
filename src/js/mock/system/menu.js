@@ -8,6 +8,7 @@ module.exports = [
             'code': '0',
             'data': [
                 { id: 1, name: 'menuName_home', module: 'home' },
+                { id: 6, name: 'menuName_tagsMgr', module: 'tagsMgr',functions:['SEARCH'] },
                 {
                     id: 7,
                     name: 'menuName_contentMgr',
@@ -51,6 +52,7 @@ module.exports = [
             'code': '0',
             'data': [
                 { id: 1, name: 'menuName_home', module: 'home', display: 1 },
+                { id: 6, name: 'menuName_tagsMgr', module: 'tagsMgr',display:1 },
                 {
                     id: 7,
                     name: 'menuName_contentMgr',
